@@ -9,6 +9,7 @@
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <link href="static/coffee.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    
 </head>
 <body>
 <div class="container">
@@ -42,13 +43,13 @@
         <h4>Total: <span id="revenue"><!-- Revenue Message will show up here --></span></h4>
     </div>
 </div>
-
-<script>
+<script type="text/javascript">
 
     // Set these variables to their DOM elements
+    var myImage = document.getElementById("coffee-image");
+    myImage.setAttribute('src',"static/coffee_beans.jpg");
 
-    var myImage;
-    var myRevenueMessage;
+    var myRevenueMessage = document.getElementById("revenue");
 
     // use this JavaScript object in further study step
 
@@ -59,6 +60,26 @@
         "hot chocolate": 2.50
     };
 
+    function makeCoffee(){
+    //     myImage.setAttribute('src', 'static/coffee_mug.jpg');
+        myImage.setAttribute('src',"static/coffee_beans.jpg");
+
+        setTimeout(function(){
+            myImage.setAttribute('src', 'static/coffee_machine.jpg');}, 1000);
+        setTimeout(function(){
+            myImage.setAttribute('src', 'static/coffee_mug.jpg');}, 3000);
+        
+        setTimeout(function(){
+            myImage.setAttribute('src', 'static/coffee_beans.jpg');}, 5000);
+     
+    }
+
+    function imageClick(evt){
+        makeCoffee();
+        console.dir(evt);
+    }
+
+    myImage.addEventListener('click', imageClick);
 
 </script>
 
